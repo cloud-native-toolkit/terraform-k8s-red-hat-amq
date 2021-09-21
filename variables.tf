@@ -1,6 +1,7 @@
 variable "cluster_config_file" {
   type        = string
   description = "Cluster config file for Kubernetes cluster."
+  default     = "https://c100-e.eu-gb.containers.cloud.ibm.com:32025"
 }
 
 variable "cluster_type" {
@@ -26,11 +27,11 @@ variable "app_namespace" {
 variable "ingress_subdomain" {
   type        = string
   description = "The subdomain for ingresses in the cluster"
-  default     = ""
+  default     = "workshop-team-2ab66b053c14936810608de9a1deac9c-0000.eu-gb.containers.appdomain.cloud"
 }
 
 variable "name" {
   type        = string
   description = "The name for the instance"
-  default     = "kafka"
+  default     = "amq"
 }
