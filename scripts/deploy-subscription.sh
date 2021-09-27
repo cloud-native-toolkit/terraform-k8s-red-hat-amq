@@ -35,7 +35,7 @@ spec:
   installPlanApproval: Automatic
   name: amq-broker
   source: redhat-operators
-  sourceNamespace: openshift-marketplace
+  sourceNamespace: ${OLM_NAMESPACE}
 
 EOL
 
