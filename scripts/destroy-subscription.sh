@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPERATOR_NAMESPACE="$1"
+OPERATOR_NAMESPACE="yks"
 
 if [[ -z "${TMP_DIR}" ]]; then
   TMP_DIR=".tmp"

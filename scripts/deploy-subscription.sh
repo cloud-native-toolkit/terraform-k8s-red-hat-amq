@@ -35,7 +35,8 @@ spec:
   installPlanApproval: Automatic
   name: amq-broker
   source: redhat-operators
-  sourceNamespace: $OLM_NAMESPACE
+  sourceNamespace: openshift-marketplace
+
 EOL
 
 set -e
@@ -60,7 +61,7 @@ until kubectl get crd/activemqartemises.broker.amq.io 1>/dev/null 2>/dev/null; d
 done
 
 count=0
-until kubectl get csv -n "${OPERATOR_NAMESPACE}" | grep -q strimzi-cluster-operator; do
+until kubectl get csv -n "${OPERATOR_NAMESPACE}" | grep -q amq-broker; do
   if [[ $count -eq 10 ]]; then
     echo "Timed out waiting for amq CSV install to be started in ${OPERATOR_NAMESPACE}"
     exit 1
@@ -70,7 +71,7 @@ until kubectl get csv -n "${OPERATOR_NAMESPACE}" | grep -q strimzi-cluster-opera
   sleep 15
 done
 
-CSV_NAME=$(kubectl get csv -n "${OPERATOR_NAMESPACE}" -o custom-columns=name:.metadata.name | grep strimzi-cluster-operator)
+CSV_NAME=$(kubectl get csv -n "${OPERATOR_NAMESPACE}" -o custom-columns=name:.metadata.name | grep amq-broker)
 
 count=0
 until [[ $(kubectl get csv -n "${OPERATOR_NAMESPACE}" "${CSV_NAME}" -o jsonpath='{.status.phase}') == "Succeeded" ]]; do

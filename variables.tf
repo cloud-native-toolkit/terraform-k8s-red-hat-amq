@@ -1,6 +1,6 @@
 variable "cluster_config_file" {
   type        = string
-  description = "Cluster config file for Kubernetes cluster."  
+  description = "Cluster config file for Kubernetes cluster."    
 }
 
 variable "cluster_type" {
