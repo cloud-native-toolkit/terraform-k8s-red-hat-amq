@@ -28,7 +28,6 @@ Strimzi operator underneath so all the same CRDs apply for configuring the clust
 - Cluster
 - OLM
 - Namespace
-
 ## Example usage
 
 ```hcl-terraform
